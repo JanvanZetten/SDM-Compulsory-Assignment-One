@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using SDM_Movie_Rating.Domain;
 
@@ -46,7 +47,7 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public int CountReviewsOfReviewer(int reviewerId)
         {
-            throw new NotImplementedException();
+            return _Reader.GetAllMovieRatings().Count(m => m.Reviewer == reviewerId);
         }
 
         public int CountWhereMovieHasGrade(int movieId, int grade)
