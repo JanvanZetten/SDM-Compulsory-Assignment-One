@@ -5,4 +5,12 @@
     <RootNamespace>SDM_Movie_Rating_JsonReader</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SDM-Movie-Rating-Core-Entity\SDM-Movie-Rating-Core-Entity.csproj" />
+  </ItemGroup>
+
 </Project>
