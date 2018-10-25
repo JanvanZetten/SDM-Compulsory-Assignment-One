@@ -9,13 +9,14 @@ namespace SDM_Movie_Rating_JsonReader
 {
     public class JsonFileAccessObject
     {
-        public List<MovieRating> LoadJson()
+        List<MovieRating> items;
+
+        public JsonFileAccessObject()
         {
             using (StreamReader r = new StreamReader("../../../../ratings.json"))
             {
                 string json = r.ReadToEnd();
-                List<MovieRating> items = JsonConvert.DeserializeObject<List<MovieRating>>(json);
-                return items;
+                items = JsonConvert.DeserializeObject<List<MovieRating>>(json);
             }
         }
     }
