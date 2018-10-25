@@ -1,0 +1,41 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDM-Movie-Rating-Core", "SDM-Movie-Rating\SDM-Movie-Rating-Core.csproj", "{9DD9A162-055C-4367-9FF3-EC424E217678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDM-Movie-Rating-Unittest", "SDM-Movie-Rating-Unittest\SDM-Movie-Rating-Unittest.csproj", "{A74FD5B8-F9ED-401D-ADBA-E02DFF98D516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDM-Movie-Rating-SpeedTest", "SDM-Movie-Rating-SpeedTest\SDM-Movie-Rating-SpeedTest.csproj", "{FABC8D16-50BA-4C17-8213-306E743E2F00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDM-Movie-Rating-Infrastructure", "SDM-Movie-Rating-JsonReader\SDM-Movie-Rating-Infrastructure.csproj", "{9F258E37-1458-43B8-91AF-C2FA43EF9A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDM-Movie-Rating-Core-Entity", "SDM-Movie-Rating-Core-Entity\SDM-Movie-Rating-Core-Entity.csproj", "{B33A8782-7A6C-4279-B205-55DEF62BDA6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DD9A162-055C-4367-9FF3-EC424E217678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD9A162-055C-4367-9FF3-EC424E217678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD9A162-055C-4367-9FF3-EC424E217678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD9A162-055C-4367-9FF3-EC424E217678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74FD5B8-F9ED-401D-ADBA-E02DFF98D516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74FD5B8-F9ED-401D-ADBA-E02DFF98D516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74FD5B8-F9ED-401D-ADBA-E02DFF98D516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74FD5B8-F9ED-401D-ADBA-E02DFF98D516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABC8D16-50BA-4C17-8213-306E743E2F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABC8D16-50BA-4C17-8213-306E743E2F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABC8D16-50BA-4C17-8213-306E743E2F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABC8D16-50BA-4C17-8213-306E743E2F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F258E37-1458-43B8-91AF-C2FA43EF9A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F258E37-1458-43B8-91AF-C2FA43EF9A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F258E37-1458-43B8-91AF-C2FA43EF9A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F258E37-1458-43B8-91AF-C2FA43EF9A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33A8782-7A6C-4279-B205-55DEF62BDA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33A8782-7A6C-4279-B205-55DEF62BDA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33A8782-7A6C-4279-B205-55DEF62BDA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33A8782-7A6C-4279-B205-55DEF62BDA6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>SDM_Movie_Rating</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="Service\IMovieRatingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Application\Impl\" />
+  </ItemGroup>
+</Project>
