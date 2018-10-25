@@ -19,7 +19,19 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public double AverageGradeOfReviewer(int reviewerId)
         {
-            throw new NotImplementedException();
+            double CombinedRatings = 0;
+            double AmountOfRatings = 0;
+
+            foreach (var item in _Reader.GetAllMovieRatings())
+            {
+                if (item.Reviewer == reviewerId)
+                {
+                    CombinedRatings += item.Grade;
+                    AmountOfRatings++;
+                }
+            }
+
+            return CombinedRatings / AmountOfRatings;
         }
 
         public int CountMoviesWithGradeByReviewer(int reviewerId, int grade)

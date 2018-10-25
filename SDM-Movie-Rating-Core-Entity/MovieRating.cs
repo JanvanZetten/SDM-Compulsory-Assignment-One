@@ -6,7 +6,7 @@ namespace SDM_Movie_Rating_Core_Entity
     {
         public int Reviewer { get; set; }
         public int Movie { get; set; }
-        public int Grade { get; set; }
+        public double Grade { get; set; }
         public DateTime Date { get; set; }
     }
 }
