@@ -14,4 +14,7 @@
     <Folder Include="Domain\" />
     <Folder Include="Application\Impl\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDM-Movie-Rating-Core-Entity\SDM-Movie-Rating-Core-Entity.csproj" />
+  </ItemGroup>
 </Project>

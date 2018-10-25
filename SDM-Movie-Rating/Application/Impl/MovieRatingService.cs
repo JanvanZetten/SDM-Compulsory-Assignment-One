@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using SDM_Movie_Rating.Domain;
 
 namespace SDM_Movie_Rating.Application.Impl
 {
     public class MovieRatingService: IMovieRatingService
     {
+        private IReader _Reader;
+        public MovieRatingService(IReader reader)
+        {
+            _Reader = reader;
+        }
 
         public double AverageGradeOfMovie(int movieId)
         {

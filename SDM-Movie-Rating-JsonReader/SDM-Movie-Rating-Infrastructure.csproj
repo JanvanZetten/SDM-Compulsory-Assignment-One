@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SDM-Movie-Rating-Core-Entity\SDM-Movie-Rating-Core-Entity.csproj" />
+    <ProjectReference Include="..\SDM-Movie-Rating\SDM-Movie-Rating-Core.csproj" />
   </ItemGroup>
 
 </Project>
