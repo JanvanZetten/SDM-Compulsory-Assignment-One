@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SDM_Movie_Rating.Domain;
 
 namespace SDM_Movie_Rating.Application.Impl
 {
