@@ -12,16 +12,15 @@ namespace SDM_Movie_Rating_Unittest
     public class CountReviewsOfReviewer_XunitTest
     {
         private Mock<IReader> mockReader = new Mock<IReader>();
+        private int ReviewerOne;
+        private int ReviewerTwo;
+        IMovieRatingService movieRatingService;
 
-
-
-        [Fact]
-        public void CountReviewsOfReviewerValidTest()
+        public CountReviewsOfReviewer_XunitTest()
         {
             //Setup
-            var ReviewerOne = 1;
-            var ReviewerTwo = 2;
-
+            ReviewerOne = 1;
+            ReviewerTwo = 2;
 
             mockReader.Setup(x => x.GetAllMovieRatings()).Returns(() => new List<MovieRating>() {
                 new MovieRating(){
@@ -45,9 +44,13 @@ namespace SDM_Movie_Rating_Unittest
                     Grade = 5
                 }
             });
-            IMovieRatingService movieRatingService = new MovieRatingService(mockReader.Object);
 
-            //Test
+            movieRatingService = new MovieRatingService(mockReader.Object);
+        }
+
+        [Fact]
+        public void CountReviewsOfReviewerValidTest()
+        {
             var result = movieRatingService.CountReviewsOfReviewer(ReviewerOne);
 
             Assert.Equal(2, result); // the reviewer one has two reviews
@@ -56,6 +59,9 @@ namespace SDM_Movie_Rating_Unittest
 
             Assert.Equal(1, result); // the reviewer one has one reviews
 
+            result = movieRatingService.CountReviewsOfReviewer(99999999);
+
+            Assert.Equal(0, result); // the reviewer one has one reviews
         }
     }
 }
