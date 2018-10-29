@@ -101,7 +101,44 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetMoviesWithMostGradesOfFive()
         {
-            throw new NotImplementedException();
+            var GradeFiveItems = _Reader.GetAllMovieRatings().Where(m => m.Grade.Equals(5)).ToList();
+
+
+            if (GradeFiveItems == null || GradeFiveItems.Count == 0){
+                return new List<int>();
+            }
+
+            var GradeFiveNumberOnMovie = new Dictionary<int, int>();
+
+            foreach (var movieItem in GradeFiveItems)
+            {
+                if (GradeFiveNumberOnMovie.ContainsKey(movieItem.Movie)){
+                    GradeFiveNumberOnMovie[movieItem.Movie]++;
+                }
+                else
+                {
+                    GradeFiveNumberOnMovie.Add(movieItem.Movie, 1);
+                }
+            }
+
+            var MovieWithHighestNumber = new List<int>();
+            int higestNumber = 0;
+
+            foreach (var movie in GradeFiveNumberOnMovie)
+            {
+
+                if (movie.Value > higestNumber){
+                    higestNumber = movie.Value;
+                    MovieWithHighestNumber.Clear();
+                    MovieWithHighestNumber.Add(movie.Key);
+                } else if (movie.Value == higestNumber)
+                {
+                    MovieWithHighestNumber.Add(movie.Key);
+                }
+            }
+
+            return MovieWithHighestNumber;
+
         }
 
         public List<int> GetReviewersWithMostReviewsDone()
