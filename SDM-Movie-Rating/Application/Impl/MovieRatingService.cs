@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using SDM_Movie_Rating.Domain;
 using SDM_Movie_Rating_Core_Entity;
-using System.Diagnostics;
+
 
 namespace SDM_Movie_Rating.Application.Impl
 {
@@ -17,7 +17,27 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public double AverageGradeOfMovie(int movieId)
         {
-            throw new NotImplementedException();
+            List<MovieRating> ratings = _Reader.GetAllMovieRatings().Where(m => m.Movie == movieId).ToList();
+
+            double sum = 0;
+            double count = 0.0;
+            ratings.ForEach(r =>
+            {
+                if (r.Grade >= 1.0 && r.Grade <= 5.0)
+                {
+                    sum += r.Grade;
+                    count++;
+                }
+            });
+            
+            if(count > 0)
+            {
+                return (sum / count);
+            }
+            else
+            {
+                throw new NullReferenceException("No grades for movie found!");
+            }
         }
 
         public double AverageGradeOfReviewer(int reviewerId)
@@ -39,7 +59,7 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public int CountMoviesWithGradeByReviewer(int reviewerId, int grade)
         {
-            throw new NotImplementedException();
+            return _Reader.GetAllMovieRatings().Count(m => m.Reviewer == reviewerId && m.Grade == grade);
         }
 
         public int CountReviewersOfMovie(int movieId)
@@ -111,7 +131,6 @@ namespace SDM_Movie_Rating.Application.Impl
             }
             List<int> reviewer = new List<int>();
             reviewer.Add(movie.Reviewer);
-            Debug.WriteLine(movie.Reviewer);
             return reviewer;
             
         }
