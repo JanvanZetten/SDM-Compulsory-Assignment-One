@@ -106,7 +106,7 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetReviewersWithMostReviewsDone()
         {
-            int count = 0;
+            /**int count = 0;
             int highestNumberOfReviews = 0;
             int reviewerId = 0;
             MovieRating movie = null;
@@ -131,8 +131,35 @@ namespace SDM_Movie_Rating.Application.Impl
             }
             List<int> reviewer = new List<int>();
             reviewer.Add(movie.Reviewer);
-            return reviewer;
+            return reviewer;**/
             
+            List<int> HighestReviewerId = new List<int>();
+            Dictionary<int, int> reviews = new Dictionary<int, int>();
+
+            foreach (var item in _Reader.GetAllMovieRatings())
+            {
+                if (reviews.ContainsKey(item.Reviewer))
+                {
+                    reviews[item.Reviewer]++;
+                }
+                else
+                {
+                    reviews.Add(item.Reviewer, 1);
+                }
+            }
+
+            int HighestValueReferenceKey = reviews.FirstOrDefault(x => x.Value == reviews.Values.Max()).Value;
+
+            foreach (KeyValuePair<int, int> item in reviews)
+            {
+                if (item.Value == HighestValueReferenceKey)
+                {
+                     HighestReviewerId.Add(item.Key);
+                }
+            }
+
+            return HighestReviewerId;
+
         }
 
         public List<int> GetReviewerWhoReviewedMovie(int movieId)
