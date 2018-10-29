@@ -37,7 +37,7 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public int CountMoviesWithGradeByReviewer(int reviewerId, int grade)
         {
-            throw new NotImplementedException();
+            return _Reader.GetAllMovieRatings().Count(m => m.Reviewer == reviewerId && m.Grade == grade);
         }
 
         public int CountReviewersOfMovie(int movieId)
