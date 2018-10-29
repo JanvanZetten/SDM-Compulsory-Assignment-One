@@ -70,9 +70,9 @@ namespace SDM_Movie_Rating_Unittest
             //Test
 
             var result = movieRatingService.GetMoviesWithMostGradesOfFive();
-
+            
             Assert.Single(result);
-            Assert.Equal(MovieOne, result[1]);
+            Assert.Equal(MovieOne, result[0]);
         }
 
 
@@ -139,9 +139,9 @@ namespace SDM_Movie_Rating_Unittest
             var result = movieRatingService.GetMoviesWithMostGradesOfFive();
 
             Assert.Equal(3, result.Count);
-            Assert.Equal(MovieOne, result[1]);
-            Assert.Equal(MovieTwo, result[2]);
-            Assert.Equal(MovieThree, result[3]);
+            Assert.Equal(MovieOne, result[0]);
+            Assert.Equal(MovieTwo, result[1]);
+            Assert.Equal(MovieFour, result[2]);
         }
 
 
