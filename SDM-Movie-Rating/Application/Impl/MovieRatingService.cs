@@ -91,7 +91,7 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetMoviesReviewedByReviewer(int reviewerId)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException();    
         }
 
         public List<int> GetMoviesWithAverageHighestGrade(int amount)
