@@ -96,7 +96,42 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetMoviesWithAverageHighestGrade(int amount)
         {
-            throw new NotImplementedException();
+            if(amount < 1)
+            {
+                throw new ArgumentException("Amount cannot be less than 1!");
+            }
+
+            var GradeFiveItems = _Reader.GetAllMovieRatings().ToList();
+
+
+            if (GradeFiveItems == null || GradeFiveItems.Count == 0)
+            {
+                return new List<int>();
+            }
+
+            var MoviesAndSums = new Dictionary<int, double[]>();
+
+            foreach (var movieItem in GradeFiveItems)
+            {
+                if (MoviesAndSums.ContainsKey(movieItem.Movie))
+                {
+                    MoviesAndSums[movieItem.Movie][0] += movieItem.Grade;
+                    MoviesAndSums[movieItem.Movie][1]++;
+                }
+                else
+                {
+                    MoviesAndSums.Add(movieItem.Movie, new double[] { movieItem.Grade, 1});
+                }
+            }
+
+            var MoviesAndAverage = new Dictionary<int, double>();
+
+            foreach (var movieAndSum in MoviesAndSums)
+            {
+                MoviesAndAverage.Add(movieAndSum.Key, movieAndSum.Value[0] / movieAndSum.Value[1]);
+            }
+            
+            return MoviesAndAverage.OrderByDescending(m => m.Value).Select(m => m.Key).Take(amount).ToList();
         }
 
         public List<int> GetMoviesWithMostGradesOfFive()
