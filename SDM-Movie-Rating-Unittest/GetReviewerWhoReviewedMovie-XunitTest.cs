@@ -16,7 +16,7 @@ namespace SDM_Movie_Rating_Unittest
         private int movieOne = 1;
         private int movieTwo = 2;
         private int movieThree = 3;
-        private int movieFour = 3;
+        private int movieFour = 4;
 
         private int reviwerOne = 1;
         private int reviwerTwo = 2;

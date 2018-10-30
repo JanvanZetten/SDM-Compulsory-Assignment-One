@@ -236,7 +236,13 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetReviewerWhoReviewedMovie(int movieId)
         {
-            throw new NotImplementedException();
+
+            return _Reader.GetAllMovieRatings()
+                          .Where(m => m.Movie == movieId)
+                          .OrderByDescending(m => m.Grade)
+                          .ThenByDescending(m => m.Date)
+                          .Select(m => m.Reviewer)
+                          .ToList();
         }
     }
 }
