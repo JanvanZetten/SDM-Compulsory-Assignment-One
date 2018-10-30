@@ -14,4 +14,10 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SDM-Movie-Rating-Core-Entity\SDM-Movie-Rating-Core-Entity.csproj" />
+    <ProjectReference Include="..\SDM-Movie-Rating-JsonReader\SDM-Movie-Rating-Infrastructure.csproj" />
+    <ProjectReference Include="..\SDM-Movie-Rating\SDM-Movie-Rating-Core.csproj" />
+  </ItemGroup>
+
 </Project>
