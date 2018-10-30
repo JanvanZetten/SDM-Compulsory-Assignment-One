@@ -18,17 +18,14 @@ namespace SDM_Movie_Rating_Unittest
 
         public GetMoviesReviewedByReviewer_XUnitTest()
         {
-            //Setup
-            List<MovieRating> list = new List<MovieRating>();
-
-            mockReader.Setup(x => x.GetAllMovieRatings()).Returns(() => list);
         }
 
         [Fact]
         public void AssertMethodGetsCorrectNumberOfReviewsAndCorrectMovies()
         {
             movieRatingService = new MovieRatingService(mockReader.Object);
-            list = new List<MovieRating>();
+            List<MovieRating> list = new List<MovieRating>();
+            mockReader.Setup(x => x.GetAllMovieRatings()).Returns(() => list);
             int ReviewerId = 1;
             int MovieOne = 1;
             int MovieTwo = 2;
@@ -73,7 +70,8 @@ namespace SDM_Movie_Rating_Unittest
         public void AssertListIsOrderedCorrectly()
         {
             movieRatingService = new MovieRatingService(mockReader.Object);
-            list = new List<MovieRating>();
+            List<MovieRating> list = new List<MovieRating>();
+            mockReader.Setup(x => x.GetAllMovieRatings()).Returns(() => list);
             int ReviewerId = 3;
 
             //Supposed position: 4
