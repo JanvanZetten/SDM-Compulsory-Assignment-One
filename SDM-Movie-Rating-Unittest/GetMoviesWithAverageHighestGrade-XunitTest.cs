@@ -78,6 +78,17 @@ namespace SDM_Movie_Rating_Unittest
         }
 
         [Fact]
+        public void GetMoviesWithAverageHighestGradeValidEmptyTest()
+        {
+            Mock<IReader> mockReaderEmpty = new Mock<IReader>();
+            mockReaderEmpty.Setup(x => x.GetAllMovieRatings()).Returns(() => new List<MovieRating>());
+            MovieRatingService movieRatingServiceEmpty = new MovieRatingService(mockReaderEmpty.Object);
+            var result = movieRatingServiceEmpty.GetMoviesWithAverageHighestGrade(1);
+
+            Assert.Empty(result);
+        }
+
+        [Fact]
         public void GetMoviesWithAverageHighestGradeInvalidTest()
         {
             List<int> result = null;
