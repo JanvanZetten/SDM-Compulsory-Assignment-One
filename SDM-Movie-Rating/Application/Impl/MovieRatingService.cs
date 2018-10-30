@@ -91,7 +91,19 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetMoviesReviewedByReviewer(int reviewerId)
         {
-            throw new NotImplementedException();    
+            List<MovieRating> list = _Reader.GetAllMovieRatings().Where(r => r.Reviewer.Equals(reviewerId)).ToList();
+
+            List<MovieRating> SortedList = list.OrderByDescending(g => g.Grade).ThenByDescending(d => d.Date).ToList();
+
+            List<int> MovieIdList = new List<int>();
+
+            foreach (var item in SortedList)
+            {
+                MovieIdList.Add(item.Movie);
+            }
+
+            return MovieIdList;
+            
         }
 
         public List<int> GetMoviesWithAverageHighestGrade(int amount)
@@ -178,6 +190,7 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetReviewersWithMostReviewsDone()
         {
+            //Old solution
             /**int count = 0;
             int highestNumberOfReviews = 0;
             int reviewerId = 0;
@@ -205,6 +218,7 @@ namespace SDM_Movie_Rating.Application.Impl
             reviewer.Add(movie.Reviewer);
             return reviewer;**/
             
+            //New solution
             List<int> HighestReviewerId = new List<int>();
             Dictionary<int, int> reviews = new Dictionary<int, int>();
 
@@ -236,7 +250,13 @@ namespace SDM_Movie_Rating.Application.Impl
 
         public List<int> GetReviewerWhoReviewedMovie(int movieId)
         {
-            throw new NotImplementedException();
+
+            return _Reader.GetAllMovieRatings()
+                          .Where(m => m.Movie == movieId)
+                          .OrderByDescending(m => m.Grade)
+                          .ThenByDescending(m => m.Date)
+                          .Select(m => m.Reviewer)
+                          .ToList();
         }
     }
 }
