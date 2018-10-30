@@ -16,10 +16,6 @@ namespace SDM_Movie_Rating_Unittest
         List<MovieRating> list;
         IMovieRatingService movieRatingService;
 
-        public GetMoviesReviewedByReviewer_XUnitTest()
-        {
-        }
-
         [Fact]
         public void AssertMethodGetsCorrectNumberOfReviewsAndCorrectMovies()
         {
