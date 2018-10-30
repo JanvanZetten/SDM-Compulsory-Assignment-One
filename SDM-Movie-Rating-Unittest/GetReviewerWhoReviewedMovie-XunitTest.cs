@@ -120,5 +120,17 @@ namespace SDM_Movie_Rating_Unittest
             Assert.Equal(expectedResult, result);
 
         }
+
+
+        [Fact]
+        public void GetReviewerWhoReviewedMovieValidEmptyTest()
+        {
+            Mock<IReader> mockReaderEmpty = new Mock<IReader>();
+            mockReaderEmpty.Setup(x => x.GetAllMovieRatings()).Returns(() => new List<MovieRating>());
+            MovieRatingService movieRatingServiceEmpty = new MovieRatingService(mockReaderEmpty.Object);
+            var result = movieRatingServiceEmpty.GetReviewerWhoReviewedMovie(1);
+
+            Assert.Empty(result);
+        }
     }
 }
