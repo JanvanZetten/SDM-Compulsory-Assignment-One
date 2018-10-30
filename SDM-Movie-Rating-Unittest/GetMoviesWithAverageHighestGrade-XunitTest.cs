@@ -14,7 +14,7 @@ namespace SDM_Movie_Rating_Unittest
         private Mock<IReader> mockReader = new Mock<IReader>();
         private int movieOne = 1;
         private int movieTwo = 2;
-        private int movieThree = 3;
+
         IMovieRatingService movieRatingService;
 
         public GetMoviesWithAverageHighestGrade_XunitTest()
