@@ -8,6 +8,9 @@ using System.Text;
 
 namespace SDM_Movie_Rating_SpeedTest
 {
+    /// <summary>
+    /// A way to use the same MovieRatingService in all test without creating it each time.
+    /// </summary>
     public class DisposableMovieRating : IDisposable
     {
         private IReader _reader;

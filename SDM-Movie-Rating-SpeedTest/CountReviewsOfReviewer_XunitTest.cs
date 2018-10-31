@@ -4,16 +4,18 @@ using SDM_Movie_Rating.Domain;
 using SDM_Movie_Rating_JsonReader;
 using System;
 using System.Diagnostics;
-using Xunit;
 using Xunit.Abstractions;
+using Xunit;
 
+// Disable Parrallelization for more accurate time test.
+[assembly: CollectionBehavior(DisableTestParallelization = true)]
 namespace SDM_Movie_Rating_SpeedTest
 {
     public class CountReviewsOfReviewer_XunitTest : IClassFixture<DisposableMovieRating>
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
-
+        
         public CountReviewsOfReviewer_XunitTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
         {
             _outputHelper = outputHelper;
@@ -27,20 +29,7 @@ namespace SDM_Movie_Rating_SpeedTest
         [InlineData(1000)]
         public void Test(int movieId)
         {
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-            Process p = Process.GetCurrentProcess();
-            double startUserProcessorTm = p.UserProcessorTime.TotalMilliseconds;
-
-            _movieRatingService.CountReviewsOfReviewer(movieId);
-
-            double endUserProcessorTm = p.UserProcessorTime.TotalMilliseconds;
-            watch.Stop();
-
-            _outputHelper.WriteLine(endUserProcessorTm - startUserProcessorTm + "");
-            _outputHelper.WriteLine(watch.Elapsed.TotalMilliseconds + "");
-
-            Assert.True((endUserProcessorTm - startUserProcessorTm) < 4000);
+            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.CountReviewsOfReviewer(movieId); }, _outputHelper) < 4000);
         }
     }
 }
