@@ -8,11 +8,10 @@ using Xunit.Abstractions;
 using Xunit;
 
 // Disable Parrallelization for more accurate time test.
-[assembly: CollectionBehavior(DisableTestParallelization = true)]
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class CountReviewsOfReviewer_XunitTest : IClassFixture<DisposableMovieRating>
+    public class CountReviewsOfReviewer_XunitTest
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
