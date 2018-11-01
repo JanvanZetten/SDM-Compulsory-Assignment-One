@@ -10,7 +10,7 @@ using Xunit;
 
 namespace SDM_Movie_Rating_Unittest
 {
-    public class HowManyReviewedMovie
+    public class CountWhereMovieHasGrade_XunitTest
     {
         private List<MovieRating> list = new List<MovieRating>();
         private Mock<IReader> reader = new Mock<IReader>();
@@ -18,21 +18,22 @@ namespace SDM_Movie_Rating_Unittest
         MovieRating i1;
         MovieRating i2;
         MovieRating i3;
+        MovieRating i4;
 
 
-       public HowManyReviewedMovie()
-       {
+        public CountWhereMovieHasGrade_XunitTest()
+        {
             i1 = new MovieRating
             {
                 Reviewer = 1,
                 Movie = 1,
-                Grade = 2
+                Grade = 1
             };
             i2 = new MovieRating
             {
                 Reviewer = 10,
-                Movie = 2,
-                Grade = 4
+                Movie = 1,
+                Grade = 1
             };
             i3 = new MovieRating
             {
@@ -40,43 +41,30 @@ namespace SDM_Movie_Rating_Unittest
                 Movie = 2,
                 Grade = 5
             };
+            i4 = new MovieRating
+            {
+                Reviewer = 12,
+                Movie = 1,
+                Grade = 2
+            };
             list.Add(i1);
             list.Add(i2);
             list.Add(i3);
+            list.Add(i4);
 
             reader.Setup(x => x.GetAllMovieRatings()).Returns(() => list);
         }
 
         [Fact]
-        public void GetCountReviewedMovie()
+        public void GetMoviesSpecificGradeCount()
         {
             IMovieRatingService movieService = new MovieRatingService(reader.Object);
+            int grade = 1;
+            int movieid = 1;
 
-            int id = 2;
-
-            int count = movieService.CountReviewersOfMovie(id);
-            Assert.True(count == 2);
-
+            int expectedAmount = 2;
+            Assert.True(expectedAmount == movieService.CountWhereMovieHasGrade(movieid, grade));
         }
-        [Theory]
-        [InlineData(-1)]
-        [InlineData(-10)]
-        [InlineData(-30)]
-        public void AssertThrowsExceptionOnInvalidID(int id)
-        {
-            IMovieRatingService movieService = new MovieRatingService(reader.Object);
-
-            try
-            {
-                movieService.CountReviewersOfMovie(id);
-                Assert.True(false);
-            }
-            catch (ArgumentException)
-            {
-                
-            }
-
-         }
 
     }
 }

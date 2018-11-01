@@ -10,7 +10,7 @@ using Xunit;
 
 namespace SDM_Movie_Rating_Unittest
 {
-    public class WhichReviewersMostReviews_XunitTest
+    public class GetReviewersWithMostReviewsDone_XunitTest
     {
         private List<MovieRating> list;
         private Mock<IReader> reader = new Mock<IReader>();
@@ -20,7 +20,7 @@ namespace SDM_Movie_Rating_Unittest
         MovieRating i3;
         MovieRating i4;
 
-        public WhichReviewersMostReviews_XunitTest()
+        public GetReviewersWithMostReviewsDone_XunitTest()
         {
             reader.Setup(x => x.GetAllMovieRatings()).Returns(() => list);
         }
