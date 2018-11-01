@@ -7,7 +7,6 @@ using Xunit.Abstractions;
 
 namespace SDM_Movie_Rating_SpeedTest
 {
-    [assembly: CollectionBehavior(DisableTestParallelization = true)]
     public class CountWhereMovieHasGrade : IClassFixture<DisposableMovieRating>
     {
         private IMovieRatingService _movieRatingService;
