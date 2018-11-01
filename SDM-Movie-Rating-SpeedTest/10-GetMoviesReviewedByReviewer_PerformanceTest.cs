@@ -8,12 +8,12 @@ using Xunit.Abstractions;
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class _10_GetMoviesReviewedByReviewer_XUnitTest
+    public class _10_GetMoviesReviewedByReviewer_PerformanceTest
     {
         private readonly ITestOutputHelper _outputHelper;
         private IMovieRatingService _movieRatingService;
 
-        public _10_GetMoviesReviewedByReviewer_XUnitTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
+        public _10_GetMoviesReviewedByReviewer_PerformanceTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
             {
                 _outputHelper = outputHelper;
                 _movieRatingService = disposeableMovieRating.GetMovieRatingService();

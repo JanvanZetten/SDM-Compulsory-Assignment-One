@@ -1,4 +1,4 @@
-using SDM_Movie_Rating.Application;
+﻿using SDM_Movie_Rating.Application;
 using SDM_Movie_Rating.Application.Impl;
 using SDM_Movie_Rating.Domain;
 using SDM_Movie_Rating_JsonReader;
@@ -11,26 +11,25 @@ using Xunit;
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class CountReviewsOfReviewer_XunitTest
+    public class _11_GetReviewerWhoReviewedMovie_PerformanceTest
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
-        
-        public CountReviewsOfReviewer_XunitTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
+
+        public _11_GetReviewerWhoReviewedMovie_PerformanceTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
         {
             _outputHelper = outputHelper;
             _movieRatingService = disposeableMovieRating.GetMovieRatingService();
         }
 
         [Theory]
-        [InlineData(1)]
-        [InlineData(10)]
-        [InlineData(100)]
-        [InlineData(571)]
-        [InlineData(1000)]
+        [InlineData(2066490)]
+        [InlineData(2519299)]
+        [InlineData(2425137)]
+        [InlineData(305344)]
         public void Test(int reviewerId)
         {
-            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.CountReviewsOfReviewer(reviewerId); }, _outputHelper) < 4000);
+            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.GetReviewerWhoReviewedMovie(reviewerId); }, _outputHelper) < 4000);
         }
     }
 }

@@ -6,13 +6,13 @@ using Xunit.Abstractions;
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class __CountMoviesWithGradeByReviewer_PerformanceTest
+    public class _03_CountMoviesWithGradeByReviewer_PerformanceTest
     {
 
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
 
-        public __CountMoviesWithGradeByReviewer_PerformanceTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
+        public _03_CountMoviesWithGradeByReviewer_PerformanceTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
         {
             _outputHelper = outputHelper;
             _movieRatingService = disposeableMovieRating.GetMovieRatingService();

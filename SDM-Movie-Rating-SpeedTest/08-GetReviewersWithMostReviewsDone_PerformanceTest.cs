@@ -6,25 +6,21 @@ using Xunit;
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class CountReviewersOfMovie_XunitTest 
+    public class _08_GetReviewersWithMostReviewsDone_PerformanceTest
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
 
-        public CountReviewersOfMovie_XunitTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
+        public _08_GetReviewersWithMostReviewsDone_PerformanceTest(ITestOutputHelper outputHelper, DisposableMovieRating disposeableMovieRating)
         {
             _outputHelper = outputHelper;
             _movieRatingService = disposeableMovieRating.GetMovieRatingService();
         }
-        
-        [Theory]
-        [InlineData(2066490)]
-        [InlineData(2519299)]
-        [InlineData(2425137)]
-        [InlineData(305344)]
-        public void Test(int movieId)
+
+        [Fact]
+        public void Test()
         {
-            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.CountReviewersOfMovie(movieId); }, _outputHelper) < 4000);
+            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.GetReviewersWithMostReviewsDone(); }, _outputHelper) < 4000);
         }
     }
 }

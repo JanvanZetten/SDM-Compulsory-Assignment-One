@@ -7,12 +7,12 @@ using Xunit.Abstractions;
 
 namespace SDM_Movie_Rating_SpeedTest
 {   [Collection("SpeedTest")]
-    public class AverageGradeOfMovie_XUnitTest 
+    public class _05_AverageGradeOfMovie_PerformanceTest 
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
 
-        public AverageGradeOfMovie_XUnitTest(DisposableMovieRating disposableMovieRating,
+        public _05_AverageGradeOfMovie_PerformanceTest(DisposableMovieRating disposableMovieRating,
             ITestOutputHelper outputHelper)
         {
             _movieRatingService = disposableMovieRating.GetMovieRatingService();
@@ -25,10 +25,7 @@ namespace SDM_Movie_Rating_SpeedTest
         [InlineData(305344)]
         public void SpeedTest(int movieId)
         {
-            Assert.True(Timer.GetUserCPUTime(() =>
-            {
-                _movieRatingService.AverageGradeOfMovie(movieId);
-            }, _outputHelper) < 4000);
+            Assert.True(Timer.GetUserCPUTime(() => {_movieRatingService.AverageGradeOfMovie(movieId);}, _outputHelper) < 4000);
         }
     }
 }
