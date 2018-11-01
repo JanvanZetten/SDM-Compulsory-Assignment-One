@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 
 namespace SDM_Movie_Rating_SpeedTest
 {   [Collection("SpeedTest")]
-    public class AverageGradeOfMovie_XUnitTest :IClassFixture<DisposableMovieRating>
+    public class AverageGradeOfMovie_XUnitTest 
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
