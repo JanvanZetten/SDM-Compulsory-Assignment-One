@@ -23,9 +23,9 @@ namespace SDM_Movie_Rating_SpeedTest
         [InlineData(100)]
         [InlineData(571)]
         [InlineData(1000)]
-        public void Test(int movieId)
+        public void Test(int reviewerId)
         {
-            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.AverageGradeOfReviewer(movieId); }, _outputHelper) < 4000);
+            Assert.True(Timer.GetUserCPUTime(() => { _movieRatingService.AverageGradeOfReviewer(reviewerId); }, _outputHelper) < 4000);
         }
     }
 }
