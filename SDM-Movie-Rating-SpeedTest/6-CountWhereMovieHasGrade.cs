@@ -20,15 +20,15 @@ namespace SDM_Movie_Rating_SpeedTest
             _outputHelper = outputHelper;
         }
         [Theory]
-        [InlineData(1)]
-        [InlineData(100)]
-        [InlineData(1000)]
-        [InlineData(10000)]
-        public void SpeedTest(int movieId)
+        [InlineData(2066490, 2)]
+        [InlineData(2519299, 3)]
+        [InlineData(2425137, 4)]
+        [InlineData(305344, 5)]
+        public void SpeedTest(int movieId, int grade)
         {
             Assert.True(Timer.GetUserCPUTime(() =>
             {
-                _movieRatingService.CountWhereMovieHasGrade(movieId, 1);
+                _movieRatingService.CountWhereMovieHasGrade(movieId, grade);
 
             },_outputHelper) < 4000);
         }

@@ -20,6 +20,9 @@ namespace SDM_Movie_Rating_SpeedTest
         }
         [Theory]
         [InlineData(2066490)]
+        [InlineData(2519299)]
+        [InlineData(2425137)]
+        [InlineData(305344)]
         public void SpeedTest(int movieId)
         {
             Assert.True(Timer.GetUserCPUTime(() =>
