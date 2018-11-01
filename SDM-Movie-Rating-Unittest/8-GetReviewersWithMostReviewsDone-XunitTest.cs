@@ -3,6 +3,7 @@ using SDM_Movie_Rating.Application;
 using SDM_Movie_Rating.Application.Impl;
 using SDM_Movie_Rating.Domain;
 using SDM_Movie_Rating_Core_Entity;
+using SDM_Movie_Rating_JsonReader;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -101,7 +102,6 @@ namespace SDM_Movie_Rating_Unittest
             int expected = 12;
 
             Assert.True(expected == movieRating.GetReviewersWithMostReviewsDone()[0]);
-      
         }
     }
 }

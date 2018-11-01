@@ -13,7 +13,6 @@ namespace SDM_Movie_Rating_Unittest
     public class GetMoviesReviewedByReviewer_XUnitTest
     {
         private Mock<IReader> mockReader = new Mock<IReader>();
-        List<MovieRating> list;
         IMovieRatingService movieRatingService;
 
         [Fact]
