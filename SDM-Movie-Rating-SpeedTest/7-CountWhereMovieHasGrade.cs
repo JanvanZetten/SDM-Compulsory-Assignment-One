@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class CountWhereMovieHasGrade : IClassFixture<DisposableMovieRating>
+    public class CountWhereMovieHasGrade
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;

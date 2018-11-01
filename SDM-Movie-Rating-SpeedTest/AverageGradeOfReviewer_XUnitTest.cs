@@ -6,7 +6,7 @@ using Xunit;
 namespace SDM_Movie_Rating_SpeedTest
 {
     [Collection("SpeedTest")]
-    public class AverageGradeOfReviewer_XunitTest : IClassFixture<DisposableMovieRating>
+    public class AverageGradeOfReviewer_XunitTest
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
