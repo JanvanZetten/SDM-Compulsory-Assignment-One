@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Text;
 using Xunit.Abstractions;
 
@@ -44,6 +45,12 @@ namespace SDM_Movie_Rating_SpeedTest
 
             outputHelper.WriteLine("Real Time: " + watch.Elapsed.TotalMilliseconds + "ms");
             outputHelper.WriteLine("User CPU Time: " + (endUserProcessorTm - startUserProcessorTm) + "ms");
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                startUserProcessorTm /= 100;
+                endUserProcessorTm /= 100;
+            }
 
             return endUserProcessorTm - startUserProcessorTm;
         }
