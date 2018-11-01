@@ -6,32 +6,26 @@ using Xunit;
 using Xunit.Abstractions;
 
 namespace SDM_Movie_Rating_SpeedTest
-{
-    [Collection("SpeedTest")]
-    public class CountWhereMovieHasGrade
+{   [Collection("SpeedTest")]
+    public class AverageGradeOfMovie_XUnitTest :IClassFixture<DisposableMovieRating>
     {
         private IMovieRatingService _movieRatingService;
         private readonly ITestOutputHelper _outputHelper;
 
-        public CountWhereMovieHasGrade(DisposableMovieRating DisposableMovieRating, 
+        public AverageGradeOfMovie_XUnitTest(DisposableMovieRating disposableMovieRating,
             ITestOutputHelper outputHelper)
         {
-            _movieRatingService = DisposableMovieRating.GetMovieRatingService();
+            _movieRatingService = disposableMovieRating.GetMovieRatingService();
             _outputHelper = outputHelper;
         }
         [Theory]
-        [InlineData(1)]
-        [InlineData(100)]
-        [InlineData(1000)]
-        [InlineData(10000)]
+        [InlineData(2066490)]
         public void SpeedTest(int movieId)
         {
             Assert.True(Timer.GetUserCPUTime(() =>
             {
-                _movieRatingService.CountWhereMovieHasGrade(movieId, 1);
-
-            },_outputHelper) < 4000);
+                _movieRatingService.AverageGradeOfMovie(movieId);
+            }, _outputHelper) < 4000);
         }
-
     }
 }
