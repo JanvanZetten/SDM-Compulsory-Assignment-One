@@ -43,14 +43,14 @@ namespace SDM_Movie_Rating_SpeedTest
             double endUserProcessorTm = p.UserProcessorTime.TotalMilliseconds;
             watch.Stop();
 
-            outputHelper.WriteLine("Real Time: " + watch.Elapsed.TotalMilliseconds + "ms");
-            outputHelper.WriteLine("User CPU Time: " + (endUserProcessorTm - startUserProcessorTm) + "ms");
-
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 startUserProcessorTm /= 100;
                 endUserProcessorTm /= 100;
             }
+
+            outputHelper.WriteLine("Real Time: " + watch.Elapsed.TotalMilliseconds + "ms");
+            outputHelper.WriteLine("User CPU Time: " + (endUserProcessorTm - startUserProcessorTm) + "ms");
 
             return endUserProcessorTm - startUserProcessorTm;
         }
